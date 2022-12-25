@@ -1,7 +1,12 @@
+import AppIinsurance from "./components/AppIinsurance"
+import {QuoterProvider} from "./context/QuoterProvider"
+
 function App() {
 
   return (
-    <h1>Running</h1>
+    <QuoterProvider>
+      <AppIinsurance />
+    </QuoterProvider>
   )
 }
 
