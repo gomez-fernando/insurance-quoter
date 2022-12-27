@@ -1,16 +1,42 @@
 import { Fragment } from "react"
 import { BRANDS, YEARS, PLANS } from "../constants"
+import useQuoter from "../hooks/Quoter"
+import Error from "./Error"
 
 const CarForm = () => {
+  const { data, handleChangeData, error, setError } = useQuoter()
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    if(Object.values(data).includes('')){
+      setError('Todos los campos son obligatorios')
+      return
+    }
+
+    setError('')
+
+    
+  }
+
   return (
     <>
+      {error && <Error/>}
 
-      <form>
+      <form
+        onSubmit={handleSubmit}
+      >
         <div className="my-5">
           <label htmlFor="" className="block mt-3 font-bold text-gray-400 uppercase">
             Marca
           </label>
-          <select name="brand" id="" className="w-full p-3 bg-white border border-gray-200">
+          <select
+            name="brand"
+            id=""
+            className="w-full p-3 bg-white border border-gray-200"
+            onChange={e => handleChangeData(e)}
+            value={data.brand}
+          >
             <option value="">Selecciona la marca</option>
 
             {BRANDS.map(brand => (
@@ -28,7 +54,13 @@ const CarForm = () => {
           <label htmlFor="" className="block mt-3 font-bold text-gray-400 uppercase">
             Año
           </label>
-          <select name="brand" id="" className="w-full p-3 bg-white border border-gray-200">
+          <select
+            name="year"
+            id=""
+            className="w-full p-3 bg-white border border-gray-200"
+            onChange={e => handleChangeData(e)}
+            value={data.year}
+          >
             <option value="">Selecciona el año de matriculación</option>
 
             {YEARS.map(year => (
@@ -50,7 +82,12 @@ const CarForm = () => {
             {PLANS.map(plan => (
               <Fragment key={plan.id}>
                 <label htmlFor="">{plan.name}</label>
-                <input type="radio" name="plan" value={plan.id} />
+                <input
+                  type="radio"
+                  name="plan"
+                  value={plan.id}
+                  onChange={e => handleChangeData(e)}
+                />
               </Fragment>
             ))}
           </div>
