@@ -4,7 +4,7 @@ import useQuoter from "../hooks/Quoter"
 import Error from "./Error"
 
 const CarForm = () => {
-  const { data, handleChangeData, error, setError } = useQuoter()
+  const { data, handleChangeData, error, setError, quote } = useQuoter()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -15,8 +15,7 @@ const CarForm = () => {
     }
 
     setError('')
-
-    
+    quote()
   }
 
   return (

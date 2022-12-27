@@ -1,7 +1,9 @@
+import useQuoter from "../hooks/Quoter"
 import CarForm from "./CarForm"
 
 const AppIinsurance = () => {
-  
+  const {result} = useQuoter()
+
   return (
     <>
       <header className="my-10">
@@ -12,6 +14,8 @@ const AppIinsurance = () => {
 
       <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10">
         <CarForm />
+
+        {result}
       </main>
     </>
   )
