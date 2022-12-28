@@ -1,8 +1,10 @@
 import useQuoter from "../hooks/Quoter"
 import CarForm from "./CarForm"
+import Result from "./Result"
+import Spinner from "./Spinner"
 
 const AppIinsurance = () => {
-  const {result} = useQuoter()
+  const {result, loader} = useQuoter()
 
   return (
     <>
@@ -15,7 +17,7 @@ const AppIinsurance = () => {
       <main className="bg-white md:w-2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10">
         <CarForm />
 
-        {result}
+        {!!loader ? <Spinner/> : <Result/>}
       </main>
     </>
   )

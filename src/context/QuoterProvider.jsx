@@ -12,6 +12,7 @@ const QuoterProvider = ({ children }) => {
 
   const [error, setError] = useState('')
   const [result, setResult] = useState(0)
+  const [loader, setLoader] = useState(false)
 
   const handleChangeData = e => {
     setData({
@@ -33,8 +34,14 @@ const QuoterProvider = ({ children }) => {
     result *= calculatePlan(data.plan).toFixed(2)
     // format money
     result = formatMoney(result)
+
+    setLoader(true)
+
+    setTimeout(() => {
+      setResult(result)
+      setLoader(false)
+    }, 1500)
     
-    setResult(result)
   }
 
   return (
@@ -45,7 +52,8 @@ const QuoterProvider = ({ children }) => {
         error, 
         setError,
         quote,
-        result
+        result,
+        loader
       }}
     >
       {children}
