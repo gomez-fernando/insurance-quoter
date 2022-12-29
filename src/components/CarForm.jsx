@@ -93,7 +93,7 @@ const CarForm = () => {
         </div>
 
         <div className="flex">
-          <input type="submit" className="w-2/3 mx-auto bg-indigo-500 transition-colors text-white cursor-pointer p-3 uppercase font-bold hover:bg-indigo-600" value="Cotizar" />
+          <input type="submit" className="w-2/3 mx-auto bg-indigo-500 transition-colors text-white cursor-pointer p-3 uppercase font-bold hover:bg-indigo-600 rounded-md" value="Cotizar" />
         </div>
       </form>
     </>

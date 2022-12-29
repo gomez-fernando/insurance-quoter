@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+  background-image: url("/public/background.jpg");
+}
+header h1{
+  margin-top: 80px;
+  margin-inline: auto;
+  padding: 10px 20px;
+  width: fit-content;
+  background-color: #4f46e5;
+  border-radius: 10px;
+}
+main{
+  margin-top: 80px;
+}
